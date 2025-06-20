@@ -67,10 +67,11 @@ def sliding_window_predict(
         yolo_predictions = []
         for box, cls in zip(total_boxes, total_classes):
             x, y, w, h = box
-            x_center = x / new_width
-            y_center = y / new_height
-            width_norm = w / new_width
-            height_norm = h / new_height
+            x_center = (x - pad_w) / width
+            y_center = (y - pad_h) / height
+            width_norm = w / width
+            height_norm = h / height
+
             yolo_predictions.append(f"{cls} {x_center:.6f} {y_center:.6f} {width_norm:.6f} {height_norm:.6f}")
 
         pred_txt_path = os.path.join(output_dir, os.path.splitext(file)[0] + '.txt')

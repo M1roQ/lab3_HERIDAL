@@ -1,0 +1,10 @@
+/runs
+/test
+/venv
+activate_and_cd.ps1
+heridal.yaml
+new_convert.py
+requirements.txt
+train.py
+yolo11n.pt
+yolov8n.pt
